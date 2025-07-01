@@ -1,35 +1,61 @@
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
+
 public class Actions {
-
     Scanner keyboard = new Scanner(System.in);
-
 
     private String taskName;
     private int taskCount;
-
-
+   public static boolean isValidDeadline(String priority){
+       if(priority.length() != 10){
+           return false;
+       }if(priority.charAt(4) !='/' || priority.charAt(7) !='/' ){
+           return false;
+       }
+       for (int i = 0; i < priority.length();i++){
+           if(i == 4 || i == 7){
+               continue;
+           }
+           if(!Character.isDigit(priority.charAt(i))){
+               return false;
+           }
+       }
+       return true;
+   }
     public void addTask() {
         char taskOption;
         int taskCount;
 
         do {
-
             System.out.print("\nSet task name:");
             this.taskName = keyboard.nextLine().toUpperCase();
 
             System.out.print("Set task description:");
             String description = keyboard.nextLine().toLowerCase();
 
+            if(description.length() < 7){
+                System.out.print("low characters for description:");
+                description = keyboard.nextLine().toLowerCase();
+            }
+
             System.out.print("Set deadline:");
             String deadline = keyboard.nextLine();
 
+            if(!isValidDeadline(deadline)){
+                System.out.print("Deadline format is incorrect:");
+                deadline = keyboard.nextLine();
+            }
+
             System.out.print("Set task Priority:");
-            char cPriority = keyboard.nextLine().charAt(0);
+            String priority = keyboard.nextLine().toUpperCase();
 
-            Tasks newTask = new Tasks(taskName, description, deadline, cPriority);
 
+            while(!priority.equalsIgnoreCase("High") && !priority.equalsIgnoreCase("Medium") && !priority.equalsIgnoreCase("Low")  ){
+                System.out.print("Priority can only be (Hard,Medium or Low):");
+                priority = keyboard.nextLine().toUpperCase();
+            }
+
+
+            Tasks newTask = new Tasks(taskName, description, deadline, priority);
 
             DetailsStorage.completedTasks.add(newTask);
             taskCount = DetailsStorage.completedTasks.size();
@@ -61,7 +87,7 @@ public class Actions {
         String newTaskName;
         String newDescription;
         String newDeadline;
-        char newPriority;
+        String newPriority;
         char nameConfirm;
         boolean isTaskEdited;
 
@@ -110,7 +136,7 @@ public class Actions {
 
                     case 4:
                         System.out.print("Enter new task priority:");
-                        newPriority = keyboard.nextLine().charAt(0);
+                        newPriority = keyboard.nextLine().toUpperCase();
                         task.setPriorityLevel(newPriority);
                         System.out.println("\n>>>Priority successfully updated<<<\n");
                         break;
@@ -165,16 +191,16 @@ public class Actions {
                 statusSet = keyboard.nextInt();
 
                 if (statusSet == 1) {
-                    System.out.println("You have completed the task");
+                    System.out.println("\n>>>Congrats,You have completed the task<<<\n");
                     task.setTaskStatus("Done");
                     DetailsStorage.finishedTasks.add(task);
                 } else if (statusSet == 2) {
-                    System.out.println("Task still  in progress");
+                    System.out.println("\n>>>Task still  in progress<<<\n");
                     task.setTaskStatus("Pending");
                 } else if (statusSet == 3) {
-                    System.out.println("Task skipped");
+                    System.out.println("\n>>>Task skipped<<<\n");
                 } else if (statusSet == 4) {
-                    System.out.println(">>>Exiting....<<<");
+                    System.out.println("\n>>>Exiting....<<<\n");
                     isStatusSelected = false;
                     break;
                 }
@@ -182,19 +208,19 @@ public class Actions {
             } else if(!task.getTaskName().equalsIgnoreCase(taskSelect)) {
                 isStatusSelected = false;
             }else{
-                System.out.println("No Matching Task");
+                System.out.println("\n>>>No Matching Task<<<\n");
             }
         }
         keyboard.nextLine();
     }
     public void displayTaskDetails(){
         for(Tasks task : DetailsStorage.completedTasks) {
-            System.out.println(">>>Tasks<<<\n");
+            System.out.println("\n>>>Tasks<<<\n");
             if (DetailsStorage.completedTasks.contains(task)) {
                 System.out.println(task);
             }
         }if(DetailsStorage.completedTasks.isEmpty()){
-            System.out.println("No tasks added yet");
+            System.out.println("\n>>>No tasks added yet<<<\n");
         }
 
     }
