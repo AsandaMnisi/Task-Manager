@@ -4,15 +4,15 @@ public class Tasks {
     private String description;
     private String deadline;
     private String taskDetails;
-    private char cPriorityLevel;
+    private String priorityLevel ;
     private int taskCount;
     private String taskStatus = "Not yet set";
 
-    public Tasks(String taskName,String description,String deadline,char cPriorityLevel){
+    public Tasks(String taskName,String description,String deadline,String priorityLevel){
         this.taskName = taskName;
         this.description = description;
         this.deadline = deadline;
-        this.cPriorityLevel = cPriorityLevel;
+        this.priorityLevel = priorityLevel;
     }
     public String getDescription(){
         return this.description;
@@ -32,8 +32,8 @@ public class Tasks {
     public void setDeadline(String deadline){
         this.deadline = deadline;
     }
-    public void setPriorityLevel(char cPriorityLevel){
-        this.cPriorityLevel = cPriorityLevel;
+    public void setPriorityLevel(String priorityLevel){
+        this.priorityLevel = priorityLevel;
     }
     public void  setTaskCount(int taskCount){
         this.taskCount = taskCount;
@@ -49,7 +49,7 @@ public class Tasks {
     public String toString(){
         return "Task:"+this.taskCount+"\n"+
                 "Task Name:"+taskName+"\nTask Description:" + description+"\nTask Deadline:"
-                + deadline+"\nTask Priority:" + cPriorityLevel+"\nTask Status:"+taskStatus+"\n";
+                + deadline+"\nTask Priority:" + priorityLevel+"\nTask Status:"+taskStatus+"\n";
 
     }
 }
