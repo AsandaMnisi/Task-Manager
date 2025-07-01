@@ -6,6 +6,7 @@ public class Tasks {
     private String taskDetails;
     private char cPriorityLevel;
     private int taskCount;
+    private String taskStatus = "Not yet set";
 
     public Tasks(String taskName,String description,String deadline,char cPriorityLevel){
         this.taskName = taskName;
@@ -16,15 +17,12 @@ public class Tasks {
     public String getDescription(){
         return this.description;
     }
-    public String getTaskDetails(){
-        return taskName + " " + description + " " + deadline + " " + cPriorityLevel + " ";
-    }
     public int getTaskCount(){
         return this.taskCount;
     }
-    public void setTaskDetails(String details){
-        this.taskDetails =  taskName + " " + description + " " + deadline + " " + cPriorityLevel + " ";
-    }
+   public  String getTaskStatus(){
+        return this.taskStatus;
+   }
     public void setTaskName(String taskName){
         this.taskName = taskName;
     }
@@ -40,13 +38,18 @@ public class Tasks {
     public void  setTaskCount(int taskCount){
         this.taskCount = taskCount;
     }
+    public void setTaskStatus(String taskStatus){
+        this.taskStatus = taskStatus;
+    }
+
     public String getTaskName(){
         return this.taskName;
     }
     @Override
     public String toString(){
         return "Task:"+this.taskCount+"\n"+
-                "Task Name:"+taskName+"\nTask Description:" + description+"\nTask Deadline:" + deadline+"\nTask Priority:" + cPriorityLevel+"\n";
+                "Task Name:"+taskName+"\nTask Description:" + description+"\nTask Deadline:"
+                + deadline+"\nTask Priority:" + cPriorityLevel+"\nTask Status:"+taskStatus+"\n";
 
     }
 }
