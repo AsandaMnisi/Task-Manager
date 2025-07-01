@@ -26,7 +26,8 @@ public class Main {
             System.out.println("1. Add Task");
             System.out.println("2. Edit Task");
             System.out.println("3. Task status");
-            System.out.println("3. Exit");
+            System.out.println("4. See All tasks");
+            System.out.println("5. Exit");
 
             System.out.print(">>> Choose Option: ");
             menuOption = keyboard.nextInt();
@@ -40,8 +41,12 @@ public class Main {
                     actions.editTask();
                     break;
                 case 3:
-                    actions.taskStatus();break;
+                    actions.taskStatus();
+                    break;
                 case 4:
+                    actions.displayTaskDetails();
+                    break;
+                case 5:
                     System.out.println("Exiting...");
                     isTrue = false;
                     break;
