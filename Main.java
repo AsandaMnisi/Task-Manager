@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
@@ -27,7 +26,8 @@ public class Main {
             System.out.println("2. Edit Task");
             System.out.println("3. Task status");
             System.out.println("4. See All tasks");
-            System.out.println("5. Exit");
+            System.out.println("5. Delete Task");
+            System.out.println("6. Exit");
 
             System.out.print(">>> Choose Option: ");
             menuOption = keyboard.nextInt();
@@ -47,6 +47,10 @@ public class Main {
                     actions.displayTaskDetails();
                     break;
                 case 5:
+                    actions.deleteTasks();
+                    break;
+
+                case 6:
                     System.out.println("Exiting...");
                     isTrue = false;
                     break;
