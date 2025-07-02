@@ -1,92 +1,111 @@
+# ✅ Java Task Manager 🗂️
 
-# 📋 Task Management Console App 💻✅
-
-Welcome to the **Task Management App** – a simple Java project that allows users to create, view, and manage tasks directly from the command line! 🧠💪
-
----
-
-## 📁 Project Structure
-
-| File Name             | Description 📃 |
-|-----------------------|----------------|
-| `Main.java`           | 🎬 Entry point that displays the menu and receives user input. |
-| `Actions.java`        | ✍️ Provides logic for creating, editing, and updating tasks. |
-| `Tasks.java`          | 📦 Represents an individual task with details like name, deadline, description, priority, and status. |
-| `DetailsStorage.java` | 🗂️ Stores and manages the list of tasks using an `ArrayList<Tasks>`. |
+A simple, interactive **task management system** built using Java!  
+This CLI-based program allows you to create, view, edit, delete, and track the status of tasks — all from the terminal.
 
 ---
 
-## ⚙️ Features
+## ✨ Features
 
-✨ This application supports:
+📌 **Add Tasks**  
+- Enter task name, description, deadline (`YYYY/MM/DD`), and priority (High, Medium, Low).  
+- Automatically stored and counted.
 
-- ➕ **Adding Tasks**  
-- ✏️ **Editing Task Details**  
-- 🔍 **Viewing All Tasks**  
-- ✅ **Marking Tasks as Complete**  
-- 🧮 **Tracking Number of Tasks**  
+✏️ **Edit Tasks**  
+- Update task name, description, deadline, or priority.  
+- Easy-to-use menu interface.
+
+🚦 **Change Task Status**  
+- Mark tasks as `Done`, `Pending`, or `Skip`.  
+- Completed tasks are saved in a separate list.
+
+📋 **Display Tasks**  
+- View all pending and completed tasks in a clean format.
+
+🗑️ **Delete Tasks**  
+- Delete a task by name with confirmation prompt.
+
+✅ **Deadline Validation**  
+- Deadlines must follow `YYYY/MM/DD` format for consistency.
 
 ---
 
-## ▶️ How to Run the App
+## 🧑‍💻 Technologies Used
 
-1. 📦 Ensure **Java is installed** (`java -version`)
-2. 🛠️ Compile the project:
+- Java ☕ (OOP principles)
+- Scanner class for user input
+- `ArrayList` for storing tasks
+- Simple console interface (no GUI)
+
+---
+
+## 🚀 Getting Started
+
+### 📁 File Structure
+
+```
+📂 src/
+ ┣ 📄 Actions.java      // Main logic and user interaction
+ ┣ 📄 Tasks.java        // Task object model
+ ┣ 📄 DetailsStorage.java // Holds task lists (completed, finished)
+ ┗ 📄 Main.java         // Entry point (calls Actions class)
+```
+
+---
+
+### ▶️ Run the Program
+
+1. **Compile:**
    ```bash
-   javac Main.java Actions.java Tasks.java DetailsStorage.java
+   javac Main.java
    ```
-3. 🚀 Run the program:
+
+2. **Run:**
    ```bash
    java Main
    ```
 
----
-
-## 📦 Tasks.java Overview
-
-The `Tasks` class is a blueprint for creating and managing task objects.
-
-### 🧱 Fields:
-- `taskName`: Name of the task 📝  
-- `description`: Description of the task 📄  
-- `deadline`: Due date of the task ⏳  
-- `cPriorityLevel`: Task priority (e.g., H, M, L) ⚠️  
-- `taskStatus`: Current status (default: `"Not yet set"`) ⏱️  
-- `taskCount`: An identifier or tracker for task number 🔢  
-
-### 🛠️ Methods:
-- Getters and setters for all fields.
-- A `toString()` method to neatly print task details.
+3. **Follow the prompts** in the terminal to manage your tasks.
 
 ---
 
-## 🎯 Sample Output
+## 🛠 Sample Task Fields
 
-```
-Task: 1
-Task Name: Buy groceries
-Task Description: Buy milk, eggs, and bread
-Task Deadline: 2025-07-05
-Task Priority: H
-Task Status: Not yet set
-```
+| Field       | Example               |
+|-------------|------------------------|
+| Task Name   | `GROCERY SHOPPING`     |
+| Description| `buy fresh vegetables` |
+| Deadline    | `2025/07/10`           |
+| Priority    | `HIGH` / `MEDIUM` / `LOW` |
 
 ---
 
-## 🏗️ Future Improvements
+## 📌 Notes
 
-- Add GUI using JavaFX or Swing 🎨
-- File/database persistence 🗃️
-- Task reminders ⏰
-- Sorting and filtering by priority or date 📅
+- Description must be at least **7 characters** long.
+- Deadline format is strictly validated as `YYYY/MM/DD`.
+- Priority is case-insensitive, but stored in uppercase.
+- You can exit at any point by selecting the appropriate option.
+
+---
+
+## 🤝 Contributing
+
+If you'd like to contribute enhancements or bug fixes, feel free to fork the repo and submit a pull request!
 
 ---
 
-## 👨‍💻 Created By
+## 🧠 Future Improvements
 
-- 💻 Java
-- ☕ Love for learning
-- ❤️ By Asanda Mnisi
+- Add unique task IDs for easier reference
+- Add file storage (save/load tasks)
+- GUI version with JavaFX or Swing
+- Sorting/filtering by deadline or priority
 
 ---
-# Task-Manager
+
+## 📝 Author
+
+Created with 💻 by **Asanda Mnisi**
+
+---
